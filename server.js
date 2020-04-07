@@ -25,8 +25,9 @@ const postsController = require('./controllers/posts');
 
 // define routes
 app.get('/', homeController.getHome);
-app.get('/posts/new', postsController.getNewPost); // add isAuthenticated rule
+app.get('/posts/new', postsController.getNewPostForm); // add isAuthenticated rule
 app.post('/posts/new', postsController.postNewPost); // add isAuthenticated rule
+app.get("/posts/:id", postsController.getPost);
 
 
 
