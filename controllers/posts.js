@@ -1,3 +1,6 @@
+const Post = require('../models/Post');
+
+
 // GET POST FORM
 exports.getNewPost = (req, res) => {
   res.render('posts-new', {
@@ -8,5 +11,8 @@ exports.getNewPost = (req, res) => {
 
 // CREATE POST
 exports.postNewPost = (req, res) => {
-  console.log(req.body);
+  const post = new Post(req.body);
+  post.save((err, post) => {
+    return res.redirect('/');
+  })
 };

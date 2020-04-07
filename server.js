@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const expressValidator = require('express-validator');
 
 // configs and middleware
+require('./data/reddit-db'); // set db
 const app = express();
 dotenv.config({ path: '.env' });
 app.engine('handlebars', exphbs());
