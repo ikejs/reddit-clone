@@ -4,7 +4,7 @@ const Post = require('../models/Post');
 // GET POST FORM
 exports.getNewPost = (req, res) => {
   res.render('posts-new', {
-    title: "New Post",
+    pageTitle: "New Post",
     postsNewActive: true
   })
 };
