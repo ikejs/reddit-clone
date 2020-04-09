@@ -30,3 +30,17 @@ exports.getPost = (req, res) => {
     console.log(err.message);
   });
 };
+
+// GET POSTS BY SUBREDDIT
+exports.getSubReddit = (req, res) => {
+  Post.find({ subreddit: req.params.subreddit })
+    .then(posts => {
+      res.render("posts-index", { 
+        pageTitle: req.params.subreddit,
+        posts: JSON.parse(JSON.stringify(posts))
+       });
+    })
+    .catch(err => {
+      console.log(err);
+    });
+};

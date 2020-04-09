@@ -28,6 +28,7 @@ app.get('/', homeController.getHome);
 app.get('/posts/new', postsController.getNewPostForm); // add isAuthenticated rule
 app.post('/posts/new', postsController.postNewPost); // add isAuthenticated rule
 app.get("/posts/:id", postsController.getPost);
+app.get("/n/:subreddit", postsController.getSubReddit);
 
 
 
