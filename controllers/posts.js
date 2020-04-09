@@ -19,7 +19,7 @@ exports.postNewPost = (req, res) => {
 
 // GET SINGLE POST
 exports.getPost = (req, res) => {
-  Post.findById(req.params.id)
+  Post.findById(req.params.id).populate('comments')
   .then(post => {
     res.render("posts-show", { 
       pageTitle: post.title,

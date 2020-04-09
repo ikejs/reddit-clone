@@ -20,15 +20,17 @@ app.set('view engine', 'handlebars');
 
 // require controllers
 const homeController = require('./controllers/home')
-const postsController = require('./controllers/posts');
+const postController = require('./controllers/posts');
+const commentController = require('./controllers/comments');
 
 
 // define routes
 app.get('/', homeController.getHome);
-app.get('/posts/new', postsController.getNewPostForm); // add isAuthenticated rule
-app.post('/posts/new', postsController.postNewPost); // add isAuthenticated rule
-app.get("/posts/:id", postsController.getPost);
-app.get("/n/:subreddit", postsController.getSubReddit);
+app.get('/posts/new', postController.getNewPostForm); // add isAuthenticated rule
+app.post('/posts/new', postController.postNewPost); // add isAuthenticated rule
+app.get("/posts/:id", postController.getPost);
+app.get("/n/:subreddit", postController.getSubReddit);
+app.post('/posts/:postId/comments', commentController.postNewComment);
 
 
 
