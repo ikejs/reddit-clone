@@ -33,6 +33,9 @@ const commentController = require('./controllers/comments');
 app.get('/', homeController.getHome);
 app.get('/sign-up', authController.getSignUp);
 app.post('/sign-up', authController.postSignUp);
+app.get('/login', authController.getLogin);
+app.post('/login', authController.postLogin);
+app.get('/logout', authController.logout)
 app.get('/posts/new', postController.getNewPostForm); // add isAuthenticated rule
 app.post('/posts/new', postController.postNewPost); // add isAuthenticated rule
 app.get("/posts/:id", postController.getPost);
